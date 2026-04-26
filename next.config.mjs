@@ -1,21 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "github.com",
-      },
-    ],
+    unoptimized: true,
   },
+  basePath:
+    process.env.NODE_ENV === "production" ? "/shadcn-landing-page" : "",
+  assetPrefix:
+    process.env.NODE_ENV === "production" ? "/shadcn-landing-page/" : "",
 };
 
 export default nextConfig;
